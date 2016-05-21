@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  div.container
+    div.row
+      div.panel.panel-default.auth-form
+        div.panel-heading Register new account
+        div.panel-body
+          form.block-panel.center-with-margin(action='/users/register', method='post')
+            div.form-group
+              input.form-control.credentials(type="text", placeholder="Username", required="" autofocus="", name='username')
+            div.form-group
+              input.form-control.credentials(type="password", placeholder="Password", required="", name='password')
+            button.btn.btn-lg.btn-primary.btn-block(type="submit") Register
+            if message
+              p.text-center.text-danger #{message}
+            a(href='/users/login') Log In with existing account
